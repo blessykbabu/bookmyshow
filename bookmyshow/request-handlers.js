@@ -2,7 +2,6 @@ import bcrypt from "bcrypt";
 import userSchema from "./model/user.schema.js";
 
 
-
 export async function register(req, res) {
     try {
         let { username, password,phone,email } = req.body;
