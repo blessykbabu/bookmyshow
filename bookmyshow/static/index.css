@@ -1,5 +1,6 @@
 .movie {
-    animation-duration: 15s;
+    animation-duration: 10s;
+    animation-iteration-count: 6;
     animation-name: slidein;
   }
   

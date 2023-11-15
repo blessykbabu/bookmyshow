@@ -40,16 +40,18 @@
       <!-- navbar end -->
 
 
-      <div class="container">
+      <div class="container-fluid">
+       <div class="row">
         <img  src="./image/bookmy-1024x768.jpg">
+       </div>
       </div>
 
       <!-- container start -->
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-3">
-      <div class="card" style="width: 12rem;">
+    <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="card" style="width: 18rem;">
         <img src="./image/bg_2018everyoneisahero.jpg" height="187px" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">2018</h5>
@@ -58,19 +60,19 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-3">
-      <div class="card" style="width: 12rem;">
+    <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="card" style="width: 18rem;">
         <img src="./image/thinkalazhcha-nishchayam-first-look-poster-2.jpg" height="187px" class="card-img-top" alt="...">
         <div class="card-body" >
           <h5 class="card-title">Thinkalazhcha Nishchayam</h5>
           <p class="card-text" style="font-size: 10px;">Thinkalazhcha Nishchayam is a good satirical take on the patriarchal system through the lens of an arranged marriage. The character development is so good that you feel for each and every character although all their objectives are drastically different..</p>
-          <a href="index2.html" class="btn btn-primary">Check</a>
+          <a href="index2.h-3tml" class="btn btn-primary">Check</a>
         </div>
       </div>
     </div>
-    <div class="col-lg-3">
-      <div class="card" style="width: 12rem; ">
-        <img src="./image/vellam_malayalam_movie_poster.jpg" class="card-img-top" alt="...">
+    <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="card" style="width: 18rem; ">
+        <img src="./image/vellam_malayalam_movie_poster.jpg"  height="187px" class="card-img-top" alt="...">
         <div class="card-body ">
           <h5 class="card-title">Vellam</h5>
           <p class="card-text" style="font-size: 10px;">The film is based on the life of a Kerala-born businessman Murali Kunnumpurath who turned his life from a full time alcoholic to a successful businessman. The film was released on 22 January 2021. The music was composed by Bijibal..</p>
@@ -78,9 +80,9 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-3">
-      <div class="card" style="width: 12rem; ">
-        <img src="./image/101172246.jpg" height="187px" class="card-img-top" alt="...">
+    <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="card" style="width: 18rem; ">
+        <img src="./image/101172246.jpg" height="175px" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Leo</h5>
           <p class="card-text" style="font-size: 10px;">Leo is an action-thriller Tamil movie, which tells the story of an animal rescuer and cafe owner who lives with his family in Theog. A string of unfortunate events puts him in the sight of a dangerous drug cartel, leading to an intense and gripping story that promises to keep viewers on the edge of their seats..</p>
@@ -99,7 +101,9 @@
     <h2 style="color: white;">Add New Movie</h2>
   </div>
   <form action="http://localhost:3000/api/file" method="post" enctype="multipart/form-data">
-    <input type="file" name="myfile" id="myfile" >
+    <input type="text" id="Mname" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Name of the movie"><br>
+    <textarea class="form-control" placeholder="Leave a details of the movie" id="floatingTextarea"></textarea><br>
+    <input type="file" name="myfile" id="myfile" ><br>
     <input type="submit" value="upload">
     
 </form>
@@ -109,8 +113,8 @@
 
 
 <div class="row">
-  <div class="col">
-    <div class="card" style="width: 12rem; ">
+  <div class="col-lg-3 col-md-6 col-sm-12">
+    <div class="card" style="width: 18rem; ">
       <img src="http://localhost:3000/api/get-file/a3558350a8f77d97d7ead34811cc1265.jpg" width="300px" height="300px" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Soorarai Pottru</h5>
@@ -119,8 +123,8 @@
           </div>
         </div>
   </div>
-  <div class="col">
-    <div class="card" style="width: 12rem; ">
+  <div class="col-lg-3 col-md-6 col-sm-12">
+    <div class="card" style="width: 18rem; ">
       <img src="http://localhost:3000/api/get-file/12film1.jpg" width="300px" height="300px" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Jailer</h5>
