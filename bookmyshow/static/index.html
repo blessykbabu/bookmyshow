@@ -50,7 +50,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-3 col-md-6 col-sm-12">
+    <div class="col-3">
       <div class="card" style="width: 18rem;">
         <img src="./image/bg_2018everyoneisahero.jpg" height="187px" class="card-img-top" alt="...">
         <div class="card-body">
@@ -60,7 +60,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-3 col-md-6 col-sm-12">
+    <div class="col-3">
       <div class="card" style="width: 18rem;">
         <img src="./image/thinkalazhcha-nishchayam-first-look-poster-2.jpg" height="187px" class="card-img-top" alt="...">
         <div class="card-body" >
@@ -70,7 +70,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-3 col-md-6 col-sm-12">
+    <div class="col-3">
       <div class="card" style="width: 18rem; ">
         <img src="./image/vellam_malayalam_movie_poster.jpg"  height="187px" class="card-img-top" alt="...">
         <div class="card-body ">
@@ -80,7 +80,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-3 col-md-6 col-sm-12">
+    <div class="col-3">
       <div class="card" style="width: 18rem; ">
         <img src="./image/101172246.jpg" height="175px" class="card-img-top" alt="...">
         <div class="card-body">
@@ -100,18 +100,21 @@
   <div class="container text-center mt-1" style="background-color:rgb(170, 80, 80);">
     <h2 style="color: white;">Add New Movie</h2>
   </div>
-  <form action="http://localhost:3000/api/file" method="post" enctype="multipart/form-data">
+  <!-- <form action="http://localhost:3000/api/upload" method="post" enctype="multipart/form-data"> -->
+    <form onsubmit="submitHandler(event) ">
     <input type="text" id="Mname" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Name of the movie"><br>
-    <textarea class="form-control" placeholder="Leave a details of the movie" id="floatingTextarea"></textarea><br>
+    <textarea class="form-control" placeholder="Leave a details of the movie" id="data"></textarea><br>
     <input type="file" name="myfile" id="myfile" ><br>
     <input type="submit" value="upload">
+  
     
 </form>
+
 </div>
 <div class="container">
 <h1 class="movie" style="color: blue;  font-family:fantasy; font-size: 24px;">Recently Added Movies</h1>
-
-
+<a href="file.html"><button type="button" class="btn btn-info">View</button></a>
+<!-- 
 <div class="row">
   <div class="col-lg-3 col-md-6 col-sm-12">
     <div class="card" style="width: 18rem; ">
@@ -134,9 +137,8 @@
         </div>
 
   </div>
-</div>
+</div> -->
 
-   
     </div>
 
 
@@ -187,7 +189,50 @@
           </button>
         </div>
        </div> -->
-
+       <script>
+       function submitHandler(event) {
+        event.preventDefault();
+       
+        let Mname = event.target[0].value;
+        let data=event.target[1].value;
+        let file = event.target[2].files[0];
+        convert(file)
+        .then(base64file=>{
+            console.log(base64file);
+            fetch(`http://localhost:3000/api/upload`,{
+                method:"post",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({
+                    Mname:Mname,
+                    data:data,
+                    myfile:base64file
+                })
+            })
+            .then(res=>res.text())
+            .then(data=>{
+                alert(data)
+            })
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+        
+    }
+    function convert(file){
+        return new Promise((res,rej)=>{
+            let fileReader = new FileReader();
+            fileReader.readAsDataURL(file);
+            fileReader.onload=() =>{
+                res(fileReader.result)
+            }
+            fileReader.onerror = (error) =>{
+                rej(error);
+            }
+        })
+    }
+</script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   </body>

@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import userSchema from "./model/user.schema.js";
-
+import fileSchema from "./model/file.schema.js";
 
 export async function register(req, res) {
     try {
@@ -18,5 +18,37 @@ export async function register(req, res) {
     } catch (error) {
         console.log(error);
         res.status(500).send("Error");
+    }
+}
+
+
+
+export async function uploadFile(req,res){
+    try {
+        let {Mname,data,myfile}=req.body
+        
+        let result=await fileSchema.create({
+            Mname,
+            data,
+            myfile
+        })
+        if(result){
+            return res.json("file upload")
+        }
+        return res.status(500).send ("error occured")
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send("error occured")
+    }
+}
+
+
+export async function  getfile(req,res){
+    try {
+        let data=await fileSchema.find();
+        return res.json(data)
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send("error occured")
     }
 }
