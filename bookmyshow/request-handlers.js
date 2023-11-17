@@ -33,7 +33,7 @@ export async function uploadFile(req,res){
             myfile
         })
         if(result){
-            return res.json("file upload")
+            return res.json("Data successfully uploaded")
         }
         return res.status(500).send ("error occured")
     } catch (error) {

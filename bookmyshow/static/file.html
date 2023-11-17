@@ -49,7 +49,7 @@
         </div>
       </div> -->
 
-
+<div id="demo"></div>
     <script>
         let Mname=document.getElementById("Mname")
         let about=document.getElementById("data")
@@ -57,10 +57,26 @@
         fetch("http://localhost:3000/api/get-file")
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
-            Mname.textContent=data[0].Mname;
-            about.textContent=data[0].data;
-            file.src=data[0].myfile;
+            // console.log(data)
+            // Mname.textContent=data[3].Mname;
+            // about.textContent=data[3].data;
+            // file.src=data[3].myfile;
+
+            // data.forEach((element) => console.log(element));
+            // data.forEach(details)
+            // document.getElementById("demo").innerHTML=data
+            // function details(item,index,arr){
+            //   let item2=JSON.stringify(item)
+            //      arr[index]=item2;
+            // }
+            data2=JSON.stringify(data)
+            let content='';
+      for(let i=0;i<data2.length;i++){
+        console.log(`object-${i}  :`,data2[i]);
+        content=content+`<div><p>${data2[i].Mname}</p><p>${data2[i].data}</p><p>${data2[i].myfile}</p></div>`;
+        console.log("content : ",content)
+      }
+      document.getElementById("demo").innerHTML=content  
             
         })
     </script>
