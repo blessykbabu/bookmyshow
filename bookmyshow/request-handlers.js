@@ -52,3 +52,20 @@ export async function  getfile(req,res){
         return res.status(500).send("error occured")
     }
 }
+
+export async function  getmovie(req,res){
+    try{
+        let {id}=req.query;
+        let result=await fileSchema.find({_id:id});
+        console.log(result)
+        if(result.length > 0){
+            return res.status(200).send(result)
+
+        }
+        return res.status(200).send({msg:"There is no details"})
+    }
+    catch(error){
+        console.log(error)
+        return res.status(500).send("Error occured")
+    }
+}

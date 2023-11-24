@@ -83,7 +83,7 @@
   }
 }
 .rotating-text-wrapper h2:nth-child(2) {
-  background-color: tomato;
+  background-color: rgb(83, 71, 255);
   animation-name: rotating-text-2;
 }
 @keyframes rotating-text-2 {
@@ -100,7 +100,7 @@
   }
 }
 .rotating-text-wrapper h2:nth-child(3) {
-  background-color: cornflowerblue;
+  background-color: rgb(55, 78, 121);
   animation-name: rotating-text-3;
 }
 @keyframes rotating-text-3 {
@@ -121,4 +121,24 @@
   .rotating-text-wrapper {
     font-size: 0.7rem;
   }
+}
+
+.movie1{
+display:flex;
+flex-direction: column;
+margin:10px;
+}
+.poster img{
+  border:2px solid black;
+}
+
+.data p{
+  text-align: justify;
+  width:200px;
+}
+.add{
+  background-color: cornflowerblue;
+  color: white;
+  padding:10px;
+  border:0px;
 }
